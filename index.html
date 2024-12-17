@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple HTML Editor</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+        }
+        textarea, iframe {
+            width: 50%;
+            height: 100%;
+            border: none;
+            box-sizing: border-box;
+        }
+        textarea {
+            padding: 10px;
+            font-size: 16px;
+            resize: none;
+        }
+        iframe {
+            border-left: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="htmlInput" placeholder="Type your HTML here..."></textarea>
+    <iframe id="output"></iframe>
+
+    <script>
+        const textarea = document.getElementById('htmlInput');
+        const iframe = document.getElementById('output');
+
+        textarea.addEventListener('input', () => {
+            const content = textarea.value;
+            iframe.srcdoc = content;
+        });
+    </script>
+</body>
+</html>
